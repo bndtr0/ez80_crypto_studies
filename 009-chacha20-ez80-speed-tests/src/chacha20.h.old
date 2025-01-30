@@ -1,0 +1,18 @@
+#ifndef ___CHACHA20_H___
+#define ___CHACHA20_H___
+#include "numtools.h"
+
+byte* chacha20_crypt(byte *msg, byte *key, byte *nonce, byte* outputBuffer, uint msgLen, uint keyLen);
+byte* chacha20_calculate(byte *msgArr, byte* keyArr, byte* nonceArr, uint counter, 
+					byte* outputBuffer, int msgLen, int keyLen);
+
+ulong rol(ulong v, int times);
+ulong LSB(byte a, byte b, byte c, byte d);
+ulong LSB_s4(char *s);
+void QuarterRound(ulong *M, int ia, int ib, int ic, int id);
+
+void arrayClear(ulong *arrd);
+void arrayCopy(ulong *arrd, ulong *arrs);
+void arraySum(ulong *arrd, ulong *arrs);
+
+#endif
