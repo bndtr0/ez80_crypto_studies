@@ -1,0 +1,188 @@
+Section     Base   Top    High   Length
+----------- ------ ------ ------ -------
+.libs       040045 040045             0h
+.init       040045 04006B            26h
+.fini       04006B 0400F3            88h
+.init.args  0400F3 0400F3             0h
+.init.bss   0400F3 040104            11h
+.text       040104 04398B          3887h
+.data       04398B 043AAB           120h
+.rodata     043AAB 0452BB          1810h
+.init_array 000000 000000             0h
+.ctors      000000 000000             0h
+.dtors      000000 000000             0h
+.fini_array 000000 000000             0h
+.bss        080000 080953 09FFFF    953h
+.header     040000 040045            45h
+
+Label                                     Value
+---------------------------------------   ------
+___low_bss                              = 080000
+___len_bss                              = 000953
+___heaptop                              = 09FFFF
+___heapbot                              = 080953
+___init_array_count                     = 000000
+___ctors_count                          = 000000
+___dtors_count                          = 000000
+___fini_array_count                     = 000000
+__stack                                 = 0AFFFF
+__land                                  = 040104
+__iand                                  = 040108
+__fcmp                                  = 04011F
+__frameset                              = 04013C
+__frameset0                             = 04014A
+__idivu                                 = 040155
+__idvrmu                                = 04015D
+__imulu                                 = 040175
+__indcallhl                             = 0401A5
+__ineg                                  = 0401A6
+__ishl                                  = 0401AF
+__ishru                                 = 0401D5
+__ladd                                  = 040216
+__lcmps                                 = 04021C
+__lcmpu                                 = 040229
+__lcmpzero                              = 040231
+__lladd                                 = 04023C
+__lland                                 = 040260
+__llcmpu                                = 04029D
+__llcmpzero                             = 0402C7
+__llctlz                                = 0402DC
+__lldivs                                = 0402F4
+__lldivu                                = 040344
+__lldvrmu                               = 040358
+__lldvrmu.hijack                        = 04035F
+__llmulu                                = 0403B6
+__llneg                                 = 04040B
+__llshl                                 = 040424
+__llshrs.hijack_llshru                  = 040452
+__llshrs.finish                         = 040471
+__llshru                                = 040475
+__llsub                                 = 04048F
+__lmulu                                 = 0404B1
+__lshl                                  = 04050D
+__lshrs.hijack_lshru                    = 040526
+__lshru                                 = 040535
+__lsub                                  = 040545
+__lor                                   = 04054F
+__ior                                   = 040553
+__setflag                               = 04056A
+__lxor                                  = 040579
+__ixor                                  = 04057D
+_errno                                  = 080000
+_fclose                                 = 040594
+__stdio_init                            = 0405D8
+_stdin                                  = 04398B
+_stdout                                 = 043990
+_stderr                                 = 043995
+__file_streams                          = 080003
+_fopen                                  = 04062A
+___fmodeflags                           = 0406EB
+_.str                                   = 043AAB
+_fputc                                  = 040752
+_fput_char                              = 0407E2
+_fseek                                  = 040809
+_fwrite                                 = 0408B2
+_npf_vpprintf                           = 040986
+JTI0_0                                  = 043AAF
+JTI0_1                                  = 043ACD
+JTI0_2                                  = 043B12
+JTI0_3                                  = 043B33
+JTI0_4                                  = 043B4B
+JTI0_5                                  = 043B63
+_npf_utoa_rev                           = 0420F0
+_printf                                 = 0421B8
+_vprintf                                = 0421D7
+_fprintf                                = 0421F7
+_vfprintf                               = 04221A
+_npf_putc_std                           = 042239
+_npf_fputc_std                          = 042249
+_.str                                   = 043B7B
+_.str.1                                 = 043B7F
+_.str.2                                 = 043B83
+_free                                   = 04225F
+__alloc_base                            = 08002B
+_mos_fopen                              = 04257D
+_mos_fclose                             = 042595
+_mos_fputc                              = 0425BF
+_mos_fwrite                             = 042708
+_mos_flseek                             = 042724
+_mos_getfil                             = 042743
+_mos_port_read                          = 0427D9
+_mos_port_write                         = 0427F0
+_outchar                                = 04280A
+_putchar                                = 042811
+_puts                                   = 042840
+___null_literal_str                     = 043B87
+___end_of_line_str                      = 043B8E
+__sbrkbase                              = 04399A
+_strchr                                 = 04286C
+_strlen                                 = 042889
+__start                                 = 040045
+skip._abort                             = 0400A5
+_exit.sp                                = 0400A6
+_clear_bss                              = 0400F3
+exit_functions                          = 04399D
+__Z12aes128_cryptPhS_S_i                = 04289E
+__Z16aes128_calculatePhS_S_             = 04295D
+__Z27aes_copy_msg_bytes_to_statePA4_hPh = 042A5F
+__Z17aes_key_expansionPhPm              = 042AC1
+__Z17aes_add_round_keyPA4_hPmh          = 042C33
+__Z13aes_sub_bytesPA4_h                 = 042CC5
+__Z14aes_shift_rowsPA4_h                = 042D28
+__Z15aes_mix_columnsPA4_h               = 042D7A
+__Z12aes_sub_wordm                      = 042E34
+_main                                   = 042ED8
+__Z12micros_setupv                      = 043736
+__Z11micros_stopv                       = 04377B
+__Z6microsv                             = 04378B
+__Z12updateMicrosv                      = 0437E2
+__Z14NumTools_toHexmh                   = 0437FC
+__Z15NumTools_toHex2h                   = 043866
+__Z22NumTools_printArray_b2Phihi        = 043881
+__Z23NumTools_printArray_b2fP4FILEPhihi = 043908
+_SBOX                                   = 0439A0
+_Rcon                                   = 043AA0
+_aesStateMat                            = 080031
+_w                                      = 080041
+_msg                                    = 0800F1
+_key                                    = 0804F1
+_outmsg                                 = 080512
+_.str                                   = 043B90
+_.str.1.1                               = 043B99
+_.str.2.2                               = 043B9C
+_.str.3.3                               = 043BC8
+_.str.4.4                               = 043BE0
+_.str.5.5                               = 043C22
+_.str.6                                 = 043C64
+_.str.7                                 = 043CA6
+_.str.8                                 = 043CE9
+_.str.9                                 = 043CF1
+_.str.10                                = 043CFA
+_.str.11                                = 043D0B
+_.str.12                                = 044101
+_.str.13                                = 04411D
+_.str.14                                = 044122
+_.str.15                                = 044124
+_.str.16                                = 04412C
+_.str.17                                = 04413D
+_.str.18                                = 044533
+_.str.19                                = 04453B
+_.str.20                                = 04454C
+_.str.21                                = 044942
+_.str.22                                = 04494A
+_.str.23                                = 04495B
+_.str.24                                = 044D51
+_.str.25                                = 044D59
+_.str.26                                = 044D6A
+_.str.27                                = 045160
+_str                                    = 045167
+_str.28                                 = 045192
+_str.29                                 = 0451A9
+_str.30                                 = 0451EA
+_str.31                                 = 04522B
+_str.32                                 = 04526C
+_nmtmp0                                 = 080912
+_TMR5_COUNTER_UPPER                     = 080952
+_.str.2.13                              = 0452AE
+_.str.3.19                              = 0452B1
+_.str.4.22                              = 0452B5
