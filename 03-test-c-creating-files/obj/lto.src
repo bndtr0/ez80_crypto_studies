@@ -1,0 +1,109 @@
+	section	.text,"ax",@progbits
+	assume	adl = 1
+	section	.text,"ax",@progbits
+	public	_main
+_main:
+	ld	hl, -9
+	call	__frameset
+	ld	hl, _.str
+	ld	de, _.str.1
+	push	de
+	push	hl
+	call	_fopen
+	ld	de, 1001
+	ld	(ix - 3), hl
+	pop	hl
+	pop	hl
+	or	a, a
+	sbc	hl, hl
+	ld	(ix - 6), hl
+BB0_1:
+	push	de
+	pop	hl
+	add	hl, bc
+	or	a, a
+	sbc	hl, bc
+	jr	z, BB0_3
+	ld	hl, (ix - 3)
+	push	hl
+	ld	hl, 64
+	push	hl
+	ld	(ix - 9), de
+	call	_fputc
+	pop	hl
+	pop	hl
+	ld	hl, (ix - 6)
+	ld	c, 16
+	call	__ishrs
+	ld	de, (ix - 3)
+	push	de
+	push	hl
+	call	_fputc
+	pop	hl
+	pop	hl
+	ld	de, 65536
+	ld	hl, (ix - 6)
+	add	hl, de
+	ld	(ix - 6), hl
+	ld	de, (ix - 9)
+	dec	de
+	jr	BB0_1
+BB0_3:
+	ld	hl, (ix - 3)
+	push	hl
+	ld	hl, 1
+	push	hl
+	ld	hl, 7
+	push	hl
+	ld	hl, _.str.2
+	push	hl
+	call	_fwrite
+	pop	hl
+	pop	hl
+	pop	hl
+	pop	hl
+	ld	hl, _str
+	push	hl
+	call	_puts
+	pop	hl
+	ld	hl, (ix - 3)
+	push	hl
+	call	_fclose
+	pop	hl
+	or	a, a
+	sbc	hl, hl
+	ld	sp, ix
+	pop	ix
+	ret
+	section	.text,"ax",@progbits
+
+	section	.rodata,"a",@progbits
+	private	_.str
+_.str:
+	db	"log1.txt", 0
+
+	section	.rodata,"a",@progbits
+	private	_.str.1
+_.str.1:
+	db	"wt", 0
+
+	section	.rodata,"a",@progbits
+	private	_.str.2
+_.str.2:
+	db	"[END]", 10, 10, 0
+
+	section	.rodata,"a",@progbits
+	private	_str
+_str:
+	db	"[END]", 10, 0
+
+	ident	"clang version 15.0.0 (https://github.com/jacobly0/llvm-project 5f8512f22751066573aa48ac848a6d2195838ac3)"
+	extern	__Unwind_SjLj_Register
+	extern	__Unwind_SjLj_Unregister
+	extern	__frameset
+	extern	_fopen
+	extern	_fputc
+	extern	__ishrs
+	extern	_puts
+	extern	_fwrite
+	extern	_fclose

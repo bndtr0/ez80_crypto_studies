@@ -1,0 +1,96 @@
+Section     Base   Top    High   Length
+----------- ------ ------ ------ -------
+.libs       040045 040045             0h
+.init       040045 04006B            26h
+.fini       04006B 0400F3            88h
+.init.args  0400F3 0400F3             0h
+.init.bss   0400F3 0400FF             Ch
+.text       0400FF 042498          2399h
+.data       042498 0424AD            15h
+.rodata     0424AD 042589            DCh
+.init_array 000000 000000             0h
+.ctors      000000 000000             0h
+.dtors      000000 000000             0h
+.fini_array 000000 000000             0h
+.bss        080000 080006 09FFFF      6h
+.header     040000 040045            45h
+
+Label                    Value
+----------------------   ------
+___low_bss             = 080000
+___len_bss             = 000006
+___heaptop             = 09FFFF
+___heapbot             = 080006
+___init_array_count    = 000000
+___ctors_count         = 000000
+___dtors_count         = 000000
+___fini_array_count    = 000000
+__stack                = 0AFFFF
+__land                 = 0400FF
+__iand                 = 040103
+__fcmp                 = 04011A
+__frameset             = 040137
+__frameset0            = 040145
+__imulu                = 040150
+__indcallhl            = 040180
+__ineg                 = 040181
+__ishl                 = 04018A
+__ishru                = 0401B0
+__ladd                 = 0401F1
+__lcmps                = 0401F7
+__lcmpu                = 040204
+__lcmpzero             = 04020C
+__lladd                = 040217
+__lland                = 04023B
+__llcmpu               = 040278
+__llcmpzero            = 0402A2
+__llctlz               = 0402B7
+__lldivs               = 0402CF
+__lldivu               = 04031F
+__lldvrmu              = 040333
+__lldvrmu.hijack       = 04033A
+__llmulu               = 040391
+__llneg                = 0403E6
+__llshl                = 0403FF
+__llshrs.hijack_llshru = 04042D
+__llshrs.finish        = 04044C
+__llshru               = 040450
+__llsub                = 04046A
+__lshrs.hijack_lshru   = 040498
+__lshru                = 0404A7
+__ior                  = 0404B7
+__setflag              = 0404CE
+__ixor                 = 0404DD
+__stdio_init           = 0404F4
+_stdin                 = 042498
+_stdout                = 04249D
+_stderr                = 0424A2
+_fputc                 = 040546
+_fput_char             = 0405D6
+_npf_vpprintf          = 0405FD
+JTI0_0                 = 0424AD
+JTI0_1                 = 0424CB
+JTI0_2                 = 042510
+JTI0_3                 = 042531
+JTI0_4                 = 042549
+JTI0_5                 = 042561
+_npf_utoa_rev          = 041D67
+_printf                = 041E2F
+_vprintf               = 041E4E
+_npf_putc_std          = 041E6E
+_.str                  = 042579
+_.str.1                = 04257D
+_.str.2                = 042581
+_free                  = 041E7E
+__alloc_base           = 080000
+_mos_fputc             = 0421DE
+_outchar               = 042429
+_putchar               = 042430
+__sbrkbase             = 0424A7
+__start                = 040045
+skip._abort            = 0400A5
+_exit.sp               = 0400A6
+_clear_bss             = 0400F3
+exit_functions         = 0424AA
+_main                  = 04245F
+_.str                  = 042585

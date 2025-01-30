@@ -1,0 +1,77 @@
+Section     Base   Top    High   Length
+----------- ------ ------ ------ -------
+.libs       040045 040045             0h
+.init       040045 04006B            26h
+.fini       04006B 0400F3            88h
+.init.args  0400F3 0400F3             0h
+.init.bss   0400F3 0400FF             Ch
+.text       0400FF 040C8A           B8Bh
+.data       040C8A 040C9F            15h
+.rodata     040C9F 040CC7            28h
+.init_array 000000 000000             0h
+.ctors      000000 000000             0h
+.dtors      000000 000000             0h
+.fini_array 000000 000000             0h
+.bss        080000 080031 09FFFF     31h
+.header     040000 040045            45h
+
+Label                 Value
+-------------------   ------
+___low_bss          = 080000
+___len_bss          = 000031
+___heaptop          = 09FFFF
+___heapbot          = 080031
+___init_array_count = 000000
+___ctors_count      = 000000
+___dtors_count      = 000000
+___fini_array_count = 000000
+__stack             = 0AFFFF
+__frameset          = 0400FF
+__frameset0         = 04010D
+__idivu             = 040118
+__idvrmu            = 040120
+__imulu             = 040138
+__indcallhl         = 040168
+__ishrs             = 04016E
+__ladd              = 0401AA
+__setflag           = 0401B0
+_errno              = 080000
+_fclose             = 0401BF
+__stdio_init        = 040203
+_stdin              = 040C8A
+_stdout             = 040C8F
+_stderr             = 040C94
+__file_streams      = 080003
+_fopen              = 040255
+___fmodeflags       = 040316
+_.str               = 040C9F
+_fputc              = 04037D
+_fput_char          = 04040D
+_fseek              = 040434
+_fwrite             = 0404DD
+_free               = 0405B1
+__alloc_base        = 08002B
+_mos_fopen          = 0408CF
+_mos_fclose         = 0408E7
+_mos_fputc          = 040911
+_mos_fwrite         = 040A5A
+_mos_flseek         = 040A76
+_mos_getfil         = 040A95
+_outchar            = 040B5C
+_putchar            = 040B63
+_puts               = 040B92
+___null_literal_str = 040CA3
+___end_of_line_str  = 040CAA
+__sbrkbase          = 040C99
+_strchr             = 040BBE
+_strlen             = 040BDB
+__start             = 040045
+skip._abort         = 0400A5
+_exit.sp            = 0400A6
+_clear_bss          = 0400F3
+exit_functions      = 040C9C
+_main               = 040BF0
+_.str               = 040CAC
+_.str.1             = 040CB5
+_.str.2             = 040CB8
+_str                = 040CC0

@@ -1,0 +1,266 @@
+	section	.text,"ax",@progbits
+	assume	adl = 1
+	section	.text,"ax",@progbits
+	public	_uart1_begin
+_uart1_begin:
+	ld	hl, -6
+	call	__frameset
+	ld	hl, (ix + 6)
+	ld	(ix - 3), hl
+	ld	a, (ix + 9)
+	ld	(ix - 6), a
+	scf
+	sbc	hl, hl
+	push	hl
+	ld	hl, -98
+	push	hl
+	call	_mos_port_write
+	pop	hl
+	pop	hl
+	scf
+	sbc	hl, hl
+	push	hl
+	ld	hl, -97
+	push	hl
+	call	_mos_port_write
+	pop	hl
+	pop	hl
+	or	a, a
+	sbc	hl, hl
+	push	hl
+	ld	hl, -96
+	push	hl
+	call	_mos_port_write
+	pop	hl
+	pop	hl
+	ld	hl, 3
+	push	hl
+	ld	hl, -95
+	push	hl
+	call	_mos_port_write
+	pop	hl
+	pop	hl
+	ld	l, 4
+	ld	bc, (ix - 3)
+	ld	a, (ix - 6)
+	call	__lshl
+	ld	hl, -331648
+	ld	e, 2
+	call	__ldivu
+	ld	(ix - 6), hl
+	ld	l, h
+	ld	(ix - 3), hl
+	ld	hl, -128
+	push	hl
+	ld	hl, -45
+	push	hl
+	call	_mos_port_write
+	pop	hl
+	pop	hl
+	ld	hl, (ix - 6)
+	push	hl
+	ld	hl, -48
+	push	hl
+	call	_mos_port_write
+	pop	hl
+	pop	hl
+	ld	hl, (ix - 3)
+	push	hl
+	ld	hl, -47
+	push	hl
+	call	_mos_port_write
+	pop	hl
+	pop	hl
+	ld	(ix + 6), -45
+	ld	(ix + 9), 3
+	ld	sp, ix
+	pop	ix
+	jp	_mos_port_write
+	section	.text,"ax",@progbits
+
+	section	.text,"ax",@progbits
+	public	_uart1_isTxEmpty
+_uart1_isTxEmpty:
+	ld	hl, 64
+	push	hl
+	call	_mos_port_read
+	pop	hl
+	ret
+	section	.text,"ax",@progbits
+
+	section	.text,"ax",@progbits
+	public	_uart1_isRxEmpty
+_uart1_isRxEmpty:
+	ld	hl, -2
+	push	hl
+	call	_mos_port_read
+	pop	hl
+	ret
+	section	.text,"ax",@progbits
+
+	section	.text,"ax",@progbits
+	public	_uart1_getc
+_uart1_getc:
+	ld	hl, -48
+	push	hl
+	call	_mos_port_read
+	pop	hl
+	ret
+	section	.text,"ax",@progbits
+
+	section	.text,"ax",@progbits
+	public	_uart1_getc_blocked
+_uart1_getc_blocked:
+BB4_1:
+	call	_uart1_isRxEmpty
+	cp	a, 1
+	jr	nz, BB4_1
+	ld	hl, -48
+	push	hl
+	call	_mos_port_read
+	pop	hl
+	ret
+	section	.text,"ax",@progbits
+
+	section	.text,"ax",@progbits
+	public	_uart1_putc
+_uart1_putc:
+	call	__frameset0
+	ld	l, (ix + 6)
+	push	hl
+	ld	hl, -48
+	push	hl
+	call	_mos_port_write
+	ld	sp, ix
+	pop	ix
+	ret
+	section	.text,"ax",@progbits
+
+	section	.text,"ax",@progbits
+	public	_main
+_main:
+	ld	hl, -11
+	call	__frameset
+	ld	hl, _str
+	push	hl
+	call	_puts
+	pop	hl
+	or	a, a
+	sbc	hl, hl
+	push	hl
+	ld	hl, 9600
+	push	hl
+	call	_uart1_begin
+	pop	hl
+	pop	hl
+	ld	hl, _str.4
+	push	hl
+	call	_puts
+	pop	hl
+	xor	a, a
+	ld	e, a
+BB6_1:
+	ld	(ix - 7), de
+	or	a, a
+	sbc	hl, hl
+	ld	l, e
+	push	hl
+	ld	hl, _.str.2
+	push	hl
+	call	_printf
+	pop	hl
+	pop	hl
+	ld	hl, (ix - 7)
+	push	hl
+	call	_uart1_putc
+	pop	hl
+	ld	hl, _str.5
+	push	hl
+	call	_puts
+	pop	hl
+	ld	hl, (_dd)
+	ld	(ix - 3), hl
+	ld	a, (_dd+3)
+	ld	(ix - 4), a
+	ld	hl, 1
+	ld	iyl, 0
+	ld	a, iyl
+	ld	e, a
+BB6_2:
+	push	hl
+	pop	iy
+	ld	(ix - 8), e
+	ld	bc, 100001
+	ld	d, a
+	call	__lcmpu
+	jr	nc, BB6_4
+	ld	(ix - 11), iy
+	lea	hl, iy
+	push	af
+	ld	a, (ix - 8)
+	ld	iyl, a
+	pop	af
+	ld	e, iyl
+	ld	bc, 255
+	ld	a, d
+	call	__land
+	ld	bc, (ix - 3)
+	ld	a, (ix - 4)
+	call	__ladd
+	ld	(ix - 3), hl
+	ld	(ix - 4), e
+	ld	hl, (ix - 11)
+	ld	e, iyl
+	ld	bc, 1
+	ld	a, d
+	call	__ladd
+	jr	BB6_2
+BB6_4:
+	ld	de, (ix - 7)
+	inc	e
+	ld	hl, (ix - 3)
+	ld	(_dd), hl
+	ld	a, (ix - 4)
+	ld	(_dd+3), a
+	jp	BB6_1
+	section	.text,"ax",@progbits
+
+	section	.rodata,"a",@progbits
+	private	_.str.2
+_.str.2:
+	db	"%d", 10, 0
+
+	section	.bss,"aw",@nobits
+	public	_dd
+_dd:
+	rb	4
+
+	section	.rodata,"a",@progbits
+	private	_str
+_str:
+	db	"Enabling UART1 @ 9,600 [bps]...", 10, 0
+
+	section	.rodata,"a",@progbits
+	private	_str.4
+_str.4:
+	db	"Sending bytes through UART1 port (pins PC0<->TxD & PC1 <-> RxD)...", 10, 0
+
+	section	.rodata,"a",@progbits
+	private	_str.5
+_str.5:
+	db	"char sent.", 10, 0
+
+	ident	"clang version 15.0.0 (https://github.com/jacobly0/llvm-project 5f8512f22751066573aa48ac848a6d2195838ac3)"
+	extern	__ldivu
+	extern	__Unwind_SjLj_Register
+	extern	__Unwind_SjLj_Unregister
+	extern	__lshl
+	extern	__frameset
+	extern	_printf
+	extern	_mos_port_read
+	extern	__land
+	extern	_mos_port_write
+	extern	__lcmpu
+	extern	__frameset0
+	extern	_puts
+	extern	__ladd
